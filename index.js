@@ -32,8 +32,8 @@ var s3 = new EasyYandexS3({
 
 
 
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb" }));
+//app.use(express.json({ limit: "50mb" }));
+//app.use(express.urlencoded({ limit: "50mb" }));
 app.use(express.json({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "ejs"));
