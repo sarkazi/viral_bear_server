@@ -840,6 +840,22 @@ app.delete("/api/video2/delete/:id", async (req, res) => {
 });
 
 
+//app.post("/api/testtt", async (req, res) => {
+//   try {
+
+//      let list = await s3.GetList('/test4/');
+
+//      console.log(list, 9999)
+
+//      res.json('fidsjhfudjhdfj')
+
+//   } catch (err) {
+//      console.log(err);
+//      throw Error("Server-side error...");
+//   }
+//});
+
+
 
 
 
@@ -847,7 +863,8 @@ app.delete("/api/video2/delete/:id", async (req, res) => {
 const start = async () => {
    try {
       await mongoose.connect(
-         "mongodb://localhost:27017/viralBear",
+         //"mongodb://localhost:27017/viralBear",
+         `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`,
          {}
       );
       app.listen(PORT, () => {
@@ -855,7 +872,63 @@ const start = async () => {
       });
    } catch (e) {
       console.log(e.message);
+      console.log(e)
    }
 };
 start();
+
+
+//const { MongoClient } = require('mongodb');
+
+
+
+//(async () => {
+//   const uri = "mongodb+srv://nik0:11X8sv77mc04yyP4@10.0.0.10/viralBear?retryWrites=true&w=majority"
+//   const client = new MongoClient(uri);
+//   try {
+//      await client.connect();
+
+//      await listDatabases(client);
+
+//   } catch (e) {
+//      console.error(e);
+//   } finally {
+//      await client.close();
+//   }
+
+//})()
+
+
+//async function main() {
+
+//   const uri = "mongodb+srv://<username>:<password>@clustername.mongodb.net/test?retryWrites=true&w=majority&useNewUrlParser=true&useUnifiedTopology=true"
+
+//   const client = new MongoClient(uri);
+
+//   try {
+//      await client.connect();
+
+//      await listDatabases(client);
+
+//   } catch (e) {
+//      console.error(e);
+//   } finally {
+//      await client.close();
+//   }
+//}
+
+//main().catch(console.error);
+
+
+
+
+//MongoClient.connect("mongodb+srv://nik0:11X8sv77mc04yyP4@10.0.0.10/viralBear?retryWrites=true&w=majority", function (err, db) {
+//   console.log('djuidjgjkdfj')
+//   if (!err) {
+//      console.log("You are connected!");
+//   };
+//   db.close();
+//});
+
+
 
