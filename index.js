@@ -23,8 +23,8 @@ let PORT = process.env.PORT || 8888;
 var EasyYandexS3 = require("easy-yandex-s3");
 var s3 = new EasyYandexS3({
    auth: {
-      accessKeyId: "YCAJE9VavEEX6lxxxmn5Zf9gf",
-      secretAccessKey: "YCNN8SqgPoEf14LAsSfeVL8hJqC-G6YDL2cwSHrQ",
+      accessKeyId: process.env.YANDEX_CLOUD_KEY_ID,
+      secretAccessKey: process.env.YANDEX_CLOUD_ACCESS_KEY,
    },
    Bucket: "viralbear",
    debug: false,
